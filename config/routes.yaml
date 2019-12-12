@@ -5,3 +5,6 @@ shopping:
 product:
   type: rest
   resource: App\Controller\ProductController
+
+login_check:
+  path: /login_check
