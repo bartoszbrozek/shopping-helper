@@ -26,6 +26,10 @@ security:
             pattern: ^/token/refresh
             stateless: true
             anonymous: true
+        register:
+            pattern: ^/register
+            stateless: true
+            anonymous: true
         api:
             pattern: ^/
             stateless: true
@@ -39,5 +43,6 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/token/refresh, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
