@@ -41,6 +41,9 @@ class ShoppingList
     public function __construct()
     {
         $this->product = new ArrayCollection();
+
+        $this->updated_at = new \DateTime();
+        $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int

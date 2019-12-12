@@ -1,3 +1,7 @@
 shopping:
   type: rest
   resource: App\Controller\ShoppingListController
+
+product:
+  type: rest
+  resource: App\Controller\ProductController
