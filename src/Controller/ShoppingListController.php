@@ -19,6 +19,7 @@ class ShoppingListController extends AbstractFOSRestController
 
     public function getShoppingsAction()
     {
+        // $this->shoppingListService->setUser($this->getUser());
         $data = $this->shoppingListService->getAll();
 
         return $this->view($data, Response::HTTP_OK);
