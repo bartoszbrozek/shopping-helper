@@ -76,4 +76,32 @@ class ShoppingListController extends AbstractFOSRestController
 
         return $this->view(null, Response::HTTP_NO_CONTENT);
     }
+
+    /**
+     * Add product to shopping list
+     *
+     * @param integer $shoppingID
+     * @param integer $productID
+     * @return \FOS\RestBundle\View\View
+     */
+    public function patchShoppingProductAction(int $shoppingID, int $productID)
+    {
+        $data = $this->shoppingListService->addProduct($shoppingID, $productID);
+
+        return $this->view($data, Response::HTTP_OK);
+    }
+
+    /**
+     * Remove product from shopping list
+     *
+     * @param integer $shoppingID
+     * @param integer $productID
+     * @return \FOS\RestBundle\View\View
+     */
+    public function deleteShoppingProductAction(int $shoppingID, int $productID)
+    {
+        $data = $this->shoppingListService->removeProduct($shoppingID, $productID);
+
+        return $this->view($data, Response::HTTP_OK);
+    }
 }
