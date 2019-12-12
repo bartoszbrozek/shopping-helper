@@ -8,3 +8,7 @@ product:
 
 login_check:
   path: /login_check
+
+refresh_jwt_token:
+  path: /token/refresh
+  controller: gesdinet.jwtrefreshtoken::refresh

@@ -7,7 +7,7 @@ use App\Entity\Product;
 use App\Repository\ProductRepository;
 use App\Repository\ShoppingListRepository;
 
-final class ShoppingListService
+final class ShoppingListService extends AbstractEntityService
 {
     /**
      * @var ShoppingListRepository

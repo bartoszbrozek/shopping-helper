@@ -6,7 +6,7 @@ use App\Entity\Product;
 use App\Entity\ShoppingList;
 use App\Repository\ProductRepository;
 
-final class ProductService
+final class ProductService extends AbstractEntityService
 {
 
     /**
