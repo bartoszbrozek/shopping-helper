@@ -38,6 +38,11 @@ class ShoppingList
      */
     private $product;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="shoppingLists")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->product = new ArrayCollection();
@@ -109,6 +114,18 @@ class ShoppingList
         if ($this->product->contains($product)) {
             $this->product->removeElement($product);
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
