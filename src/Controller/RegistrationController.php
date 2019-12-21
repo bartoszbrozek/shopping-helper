@@ -51,7 +51,7 @@ class RegistrationController extends AbstractFOSRestController
      */
     public function index(Request $request)
     {
-        $email = $request->get('email');
+        $email = $request->get('username');
         $password = $request->get('password');
 
         $user = $this->userRepository->findOneBy(['email' => $email]);
