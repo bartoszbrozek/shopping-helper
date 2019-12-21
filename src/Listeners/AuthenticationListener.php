@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 class AuthenticationListener
 {
     private $tokenTTL;
+    private $isHTTPOnlySecure = false;
 
     public function __construct($tokenTTL = 3600)
     {
@@ -31,7 +32,7 @@ class AuthenticationListener
                     ->add(new \DateInterval('PT' . $this->tokenTTL . 'S')),
                 '/',
                 null,
-                true
+                $this->isHTTPOnlySecure
             )
 
         );

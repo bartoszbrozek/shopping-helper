@@ -41,9 +41,9 @@ class UserController extends AbstractFOSRestController
     /**
      * @param Request $request
      */
-    public function getUserAction(int $id)
+    public function getUserAction()
     {
-        $user = $this->userRepository->findOneBy(['id' => $id]);
+        $user = $this->getUser();
 
         return $this
             ->view($user, Response::HTTP_OK)
