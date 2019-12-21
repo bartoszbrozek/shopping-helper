@@ -9,6 +9,10 @@ product:
 login_check:
   path: /login_check
 
+user:
+  type: rest
+  resource: App\Controller\UserController
+
 refresh_jwt_token:
   path: /token/refresh
   controller: gesdinet.jwtrefreshtoken::refresh
