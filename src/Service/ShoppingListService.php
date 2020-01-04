@@ -51,6 +51,16 @@ final class ShoppingListService extends AbstractEntityService
     }
 
     /**
+     * Get all shopping lists by userID
+     *
+     * @return array|null
+     */
+    public function getAllByUserID(): ?array
+    {
+        return $this->repository->findAllByUserID($this->user->getId());
+    }
+
+    /**
      * Create Shopping List
      *
      * @param string $name
@@ -59,7 +69,9 @@ final class ShoppingListService extends AbstractEntityService
     public function create(string $name): ShoppingList
     {
         $shoppingList = new ShoppingList();
-        $shoppingList->setName($name);
+        $shoppingList
+            ->setName($name)
+            ->setUser($this->user);
         $this->repository->getEM()->persist($shoppingList);
         $this->repository->getEM()->flush();
 

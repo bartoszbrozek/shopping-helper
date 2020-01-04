@@ -19,8 +19,8 @@ class ShoppingListController extends AbstractFOSRestController
 
     public function getShoppingsAction()
     {
-        // $this->shoppingListService->setUser($this->getUser());
-        $data = $this->shoppingListService->getAll();
+        $this->shoppingListService->setUser($this->getUser());
+        $data = $this->shoppingListService->getAllByUserID();
 
         return $this->view($data, Response::HTTP_OK);
     }
@@ -45,6 +45,7 @@ class ShoppingListController extends AbstractFOSRestController
      */
     public function postShoppingAction(ParamFetcherInterface $paramFetcher)
     {
+        $this->shoppingListService->setUser($this->getUser());
         $name = $paramFetcher->get('name');
 
         $shoppingList = $this->shoppingListService->create($name);

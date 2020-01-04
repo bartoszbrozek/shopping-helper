@@ -13,6 +13,15 @@ trait CommonRepoMethods
             ->getOneOrNullResult();
     }
 
+    public function findAllByUserID(int $id)
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.user = :val')
+            ->setParameter('val', $id)
+            ->getQuery()
+            ->getResult();
+    }
+
     public function getEM()
     {
         return $this->getEntityManager();
