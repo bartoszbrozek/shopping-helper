@@ -2,11 +2,9 @@
 
 namespace App\Repository;
 
-use Doctrine\ORM\Mapping\Entity;
-
 trait CommonRepoMethods
 {
-    public function findOneByID(int $id): ?Entity
+    public function findOneByID(int $id)
     {
         return $this->createQueryBuilder('e')
             ->andWhere('e.id = :val')
